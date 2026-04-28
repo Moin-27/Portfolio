@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,18 +14,87 @@
     rel="stylesheet">
   <style>
     :root {
-      --bg: #0f2027;
-      --bg2: #1e3c72;
-      --surface: rgba(0, 0, 0, 0.4);
-      --border: rgba(0, 242, 254, 0.2);
+      --bg: #080c10;
+      --bg2: #0d1117;
+      --surface: #111820;
+      --nav-bg: rgba(8, 12, 16, 0.8);
+      --contact-bg: rgba(0, 0, 0, 0.5);
+      --contact-border: rgba(0, 242, 254, 0.25);
+      --border: rgba(0, 242, 254, 0.18);
       --green: #0078ff;
       --green-light: #00f2fe;
-      --green-dim: rgba(0, 120, 255, 0.2);
+      --green-dim: rgba(0, 120, 255, 0.15);
       --text: #ffffff;
-      --muted: #bbbbbb;
+      --muted: #8899aa;
       --accent: #00f2fe;
       --mono: 'Space Mono', monospace;
       --display: 'Syne', sans-serif;
+    }
+
+    [data-theme='light'] {
+      --bg: #f4f7f9;
+      --bg2: #e1e7eb;
+      --surface: #ffffff;
+      --nav-bg: rgba(244, 247, 249, 0.9);
+      --contact-bg: rgba(255, 255, 255, 0.8);
+      --contact-border: rgba(0, 85, 204, 0.15);
+      --border: rgba(0, 85, 204, 0.12);
+      --green: #0055cc;
+      --green-light: #0078ff;
+      --green-dim: rgba(0, 120, 255, 0.08);
+      --text: #2d3748;
+      --muted: #4a5568;
+      --accent: #0078ff;
+    }
+
+    [data-theme='light'] body {
+      background: linear-gradient(180deg, #f4f7f9 0%, #e1e7eb 100%);
+    }
+
+    [data-theme='light'] .stat-num {
+      color: var(--text);
+    }
+
+    [data-theme='light'] .glitch {
+      color: #0d1117;
+    }
+
+    [data-theme='light'] .hero h1 .line2 {
+      color: #0055cc;
+    }
+
+    /* --- THEME TOGGLE BUTTON --- */
+    .theme-toggle {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      width: 52px;
+      height: 26px;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .theme-toggle .toggle-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      transition: transform 0.35s cubic-bezier(.4, 0, .2, 1), background 0.3s;
+      line-height: 1;
+    }
+
+    [data-theme='light'] .theme-toggle .toggle-thumb {
+      transform: translateX(26px);
+      background: #0055cc;
     }
 
     *,
@@ -41,7 +110,7 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(135deg, #080c10 0%, #0d1117 50%, #111820 100%);
       color: var(--text);
       font-family: var(--display);
       overflow-x: hidden;
@@ -94,7 +163,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(8, 12, 16, 0.75);
+      background: var(--nav-bg);
       backdrop-filter: blur(16px);
       border-bottom: 0.5px solid var(--border);
     }
@@ -162,7 +231,7 @@
     }
 
     .hero h1 .line2 {
-      color: var(--green-light);
+      color: #00f2fe;
       display: block;
     }
 
@@ -270,7 +339,7 @@
       width: 340px;
       opacity: 0;
       animation: fadeInRight 0.9s 1s forwards;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
       overflow: hidden;
       z-index: 10;
     }
@@ -300,9 +369,17 @@
       border-radius: 50%;
     }
 
-    .dot-r { background: #ff5f56; }
-    .dot-y { background: #ffbd2e; }
-    .dot-g { background: #27c93f; }
+    .dot-r {
+      background: #ff5f56;
+    }
+
+    .dot-y {
+      background: #ffbd2e;
+    }
+
+    .dot-g {
+      background: #27c93f;
+    }
 
     .sql-title {
       flex: 1;
@@ -324,10 +401,23 @@
       min-height: 140px;
     }
 
-    .sql-keyword { color: var(--green-light); font-weight: 600; }
-    .sql-column { color: #e2e8f0; }
-    .sql-table { color: var(--green); }
-    .sql-string { color: #94a3b8; }
+    .sql-keyword {
+      color: var(--green-light);
+      font-weight: 600;
+    }
+
+    .sql-column {
+      color: #e2e8f0;
+    }
+
+    .sql-table {
+      color: var(--green);
+    }
+
+    .sql-string {
+      color: #94a3b8;
+    }
+
     .sql-cursor {
       display: inline-block;
       width: 8px;
@@ -339,8 +429,15 @@
     }
 
     @keyframes sqlBlink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
     }
 
     .stats-bar {
@@ -655,20 +752,22 @@
     }
 
     .contact-inner {
-      background: var(--surface);
-      border: 0.5px solid var(--border);
-      border-radius: 8px;
+      background: var(--contact-bg);
+      border: 1px solid var(--contact-border);
+      border-radius: 12px;
       padding: 3.5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 40px rgba(0, 120, 255, 0.1), inset 0 1px 0 rgba(0, 242, 254, 0.15);
     }
 
     .contact-inner::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(29, 158, 117, 0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(0, 120, 255, 0.1) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -783,63 +882,7 @@
     .glitch {
       position: relative;
       display: inline-block;
-      color: var(--text);
-    }
-
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .glitch::before {
-      color: var(--green);
-      clip-path: polygon(0 30%, 100% 30%, 100% 55%, 0 55%);
-      animation: glitch1 5s infinite;
-      opacity: 0.6;
-    }
-
-    .glitch::after {
-      color: var(--green-light);
-      clip-path: polygon(0 65%, 100% 65%, 100% 80%, 0 80%);
-      animation: glitch2 5s infinite;
-      opacity: 0.6;
-    }
-
-    @keyframes glitch1 {
-
-      0%,
-      88%,
-      100% {
-        transform: none
-      }
-
-      90% {
-        transform: translate(-2px, 1px)
-      }
-
-      92% {
-        transform: translate(2px, -1px)
-      }
-    }
-
-    @keyframes glitch2 {
-
-      0%,
-      88%,
-      100% {
-        transform: none
-      }
-
-      91% {
-        transform: translate(2px, 1px)
-      }
-
-      93% {
-        transform: translate(-2px, -1px)
-      }
+      color: #ffffff;
     }
 
     .lang-wrap {
@@ -923,13 +966,16 @@
   <div class="cursor-ring" id="cursorRing"></div>
 
   <nav>
-    <div class="nav-logo">MA_PORTFOLIO</div>
+    <div class="nav-logo">MOIN_AHMED</div>
     <ul class="nav-links">
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#certs">Certs</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle Day / Night">
+      <div class="toggle-thumb" id="toggleThumb">🌙</div>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -1330,24 +1376,24 @@
     ];
 
     const sqlCodeEl = document.getElementById('sqlCode');
-    if(sqlCodeEl) {
+    if (sqlCodeEl) {
       let currentChunk = 0;
       let currentChar = 0;
-      
+
       setTimeout(() => {
         function typeSql() {
           if (currentChunk < sqlText.length) {
             let chunk = sqlText[currentChunk];
             if (currentChar === 0) {
               let span = document.createElement('span');
-              if(chunk.class) span.className = chunk.class;
+              if (chunk.class) span.className = chunk.class;
               sqlCodeEl.appendChild(span);
             }
-            
+
             let currentSpan = sqlCodeEl.lastChild;
             currentSpan.textContent += chunk.text[currentChar];
             currentChar++;
-            
+
             if (currentChar >= chunk.text.length) {
               currentChunk++;
               currentChar = 0;
@@ -1407,6 +1453,35 @@
       });
     }, { threshold: 0.3 });
     fills.forEach(f => fObs.observe(f));
+  </script>
+
+  <script>
+    /* ── THEME TOGGLE ── */
+    (function () {
+      const html = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const thumb = document.getElementById('toggleThumb');
+
+      function applyTheme(theme) {
+        if (theme === 'light') {
+          html.setAttribute('data-theme', 'light');
+          thumb.textContent = '☀️';
+        } else {
+          html.removeAttribute('data-theme');
+          thumb.textContent = '🌙';
+        }
+      }
+
+      // Restore preference
+      const saved = localStorage.getItem('portfolio-theme') || 'dark';
+      applyTheme(saved);
+
+      btn.addEventListener('click', function () {
+        const current = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        applyTheme(current);
+        localStorage.setItem('portfolio-theme', current);
+      });
+    })();
   </script>
 </body>
 
