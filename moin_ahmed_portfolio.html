@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -259,124 +259,88 @@
       }
     }
 
-    .hero-dashboard {
+    .sql-card {
       position: absolute;
       right: 3rem;
       top: 50%;
       transform: translateY(-50%);
-      background: var(--surface);
-      border: 0.5px solid var(--border);
+      background: #0f172a;
+      border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1.5rem;
-      width: 300px;
+      width: 340px;
       opacity: 0;
       animation: fadeInRight 0.9s 1s forwards;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      overflow: hidden;
+      z-index: 10;
     }
 
     @media(max-width:900px) {
-      .hero-dashboard {
+      .sql-card {
         display: none;
       }
     }
 
-    .dash-header {
+    .sql-header {
+      background: #1e293b;
+      padding: 10px 15px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid var(--border);
     }
 
-    .dash-title {
+    .sql-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-r { background: #ff5f56; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #27c93f; }
+
+    .sql-title {
+      flex: 1;
+      text-align: center;
       font-family: var(--mono);
       font-size: 12px;
       color: var(--muted);
-      letter-spacing: 0.1em;
+      margin-right: 36px;
     }
 
-    .dash-status {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--green-light);
+    .sql-body {
+      padding: 1.5rem;
+      font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      background: #0f172a;
+      color: #e2e8f0;
+      overflow-x: auto;
+      min-height: 140px;
     }
 
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--green-light);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--green-light);
-      animation: blink 1.5s infinite;
+    .sql-keyword { color: var(--green-light); font-weight: 600; }
+    .sql-column { color: #e2e8f0; }
+    .sql-table { color: var(--green); }
+    .sql-string { color: #94a3b8; }
+    .sql-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background-color: var(--green-light);
+      vertical-align: middle;
+      animation: sqlBlink 1s step-end infinite;
+      margin-left: 2px;
     }
 
-    .chart-box {
-      display: flex;
-      align-items: flex-end;
-      gap: 8px;
-      height: 100px;
-      padding: 10px 0;
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    .bar {
-      flex: 1;
-      height: 100%;
-      background: var(--green-dim);
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(to top, var(--green), var(--green-light));
-      height: 0;
-      transition: height 1.5s ease-out;
-    }
-
-    .dash-stats {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .dash-stat-item {
-      text-align: left;
-    }
-
-    .ds-val {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .ds-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .blink {
-      animation: blink 1.5s infinite;
-    }
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: 0
-      }
+    @keyframes sqlBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     .stats-bar {
@@ -990,39 +954,17 @@
         <div class="scroll-line"></div>SCROLL DOWN
       </div>
 
-      <div class="hero-dashboard">
-        <div class="dash-header">
-          <div class="dash-title">LIVE ANALYTICS</div>
-          <div class="dash-status">
-            <div class="status-dot"></div> RUNNING
+      <div class="sql-card">
+        <div class="sql-header">
+          <div class="sql-dots">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
           </div>
+          <div class="sql-title">query.sql</div>
         </div>
-        <div class="chart-box" id="animatedChart">
-          <div class="bar">
-            <div class="bar-fill" style="height: 0%" data-h="40%"></div>
-          </div>
-          <div class="bar">
-            <div class="bar-fill" style="height: 0%" data-h="70%"></div>
-          </div>
-          <div class="bar">
-            <div class="bar-fill" style="height: 0%" data-h="50%"></div>
-          </div>
-          <div class="bar">
-            <div class="bar-fill" style="height: 0%" data-h="90%"></div>
-          </div>
-          <div class="bar">
-            <div class="bar-fill" style="height: 0%" data-h="65%"></div>
-          </div>
-        </div>
-        <div class="dash-stats">
-          <div class="dash-stat-item">
-            <div class="ds-val">90%</div>
-            <div class="ds-label">SQL SKILL</div>
-          </div>
-          <div class="dash-stat-item">
-            <div class="ds-val">80%</div>
-            <div class="ds-label">PYTHON SKILL</div>
-          </div>
+        <div class="sql-body">
+          <pre><code id="sqlCode"></code><span class="sql-cursor"></span></pre>
         </div>
       </div>
     </div>
@@ -1369,12 +1311,53 @@
       el.addEventListener('mouseleave', () => { cursor.style.width = '10px'; cursor.style.height = '10px'; ring.style.width = '36px'; ring.style.height = '36px'; });
     });
 
-    // CHART ANIMATION
-    setTimeout(() => {
-      document.querySelectorAll('.bar-fill').forEach(bar => {
-        bar.style.height = bar.dataset.h;
-      });
-    }, 1500);
+    // SQL TYPING ANIMATION
+    const sqlText = [
+      { text: "SELECT ", class: "sql-keyword" },
+      { text: "skills", class: "sql-column" },
+      { text: ", ", class: "" },
+      { text: "passion\n", class: "sql-column" },
+      { text: "FROM ", class: "sql-keyword" },
+      { text: "portfolio\n", class: "sql-table" },
+      { text: "WHERE ", class: "sql-keyword" },
+      { text: "role ", class: "sql-column" },
+      { text: "= ", class: "" },
+      { text: "'Data Analyst'\n", class: "sql-string" },
+      { text: "ORDER BY ", class: "sql-keyword" },
+      { text: "impact ", class: "sql-column" },
+      { text: "DESC", class: "sql-keyword" },
+      { text: ";", class: "" }
+    ];
+
+    const sqlCodeEl = document.getElementById('sqlCode');
+    if(sqlCodeEl) {
+      let currentChunk = 0;
+      let currentChar = 0;
+      
+      setTimeout(() => {
+        function typeSql() {
+          if (currentChunk < sqlText.length) {
+            let chunk = sqlText[currentChunk];
+            if (currentChar === 0) {
+              let span = document.createElement('span');
+              if(chunk.class) span.className = chunk.class;
+              sqlCodeEl.appendChild(span);
+            }
+            
+            let currentSpan = sqlCodeEl.lastChild;
+            currentSpan.textContent += chunk.text[currentChar];
+            currentChar++;
+            
+            if (currentChar >= chunk.text.length) {
+              currentChunk++;
+              currentChar = 0;
+            }
+            setTimeout(typeSql, Math.random() * 40 + 30);
+          }
+        }
+        typeSql();
+      }, 1500);
+    }
 
     // SCROLL REVEAL
     const reveals = document.querySelectorAll('.reveal');
