@@ -14,16 +14,16 @@
     rel="stylesheet">
   <style>
     :root {
-      --bg: #080c10;
-      --bg2: #0d1117;
-      --surface: #111820;
-      --border: rgba(29, 158, 117, 0.18);
-      --green: #1D9E75;
-      --green-light: #5DCAA5;
-      --green-dim: rgba(29, 158, 117, 0.12);
-      --text: #e8f0ec;
-      --muted: #6b8a7a;
-      --accent: #9EE4C8;
+      --bg: #0f2027;
+      --bg2: #1e3c72;
+      --surface: rgba(0, 0, 0, 0.4);
+      --border: rgba(0, 242, 254, 0.2);
+      --green: #0078ff;
+      --green-light: #00f2fe;
+      --green-dim: rgba(0, 120, 255, 0.2);
+      --text: #ffffff;
+      --muted: #bbbbbb;
+      --accent: #00f2fe;
       --mono: 'Space Mono', monospace;
       --display: 'Syne', sans-serif;
     }
@@ -41,7 +41,7 @@
     }
 
     body {
-      background: var(--bg);
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: var(--text);
       font-family: var(--display);
       overflow-x: hidden;
@@ -1250,7 +1250,7 @@
       }
       draw() {
         ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(29,158,117,${this.alpha})`; ctx.fill();
+        ctx.fillStyle = `rgba(0,242,254,${this.alpha})`; ctx.fill();
       }
     }
 
@@ -1268,7 +1268,7 @@
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < 130) {
           ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouseX, mouseY);
-          ctx.strokeStyle = `rgba(29,158,117,${0.3 * (1 - dist / 130)})`; ctx.lineWidth = 0.7; ctx.stroke();
+          ctx.strokeStyle = `rgba(0,242,254,${0.3 * (1 - dist / 130)})`; ctx.lineWidth = 0.7; ctx.stroke();
         }
       });
       // Draw connections between particles
@@ -1278,7 +1278,7 @@
           const d = Math.sqrt(dx * dx + dy * dy);
           if (d < 100) {
             ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(29,158,117,${0.1 * (1 - d / 100)})`; ctx.lineWidth = 0.4; ctx.stroke();
+            ctx.strokeStyle = `rgba(0,242,254,${0.1 * (1 - d / 100)})`; ctx.lineWidth = 0.4; ctx.stroke();
           }
         }
       }
