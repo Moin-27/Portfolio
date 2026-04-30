@@ -1,4 +1,4 @@
-﻿    // PARTICLE CANVAS
+    // PARTICLE CANVAS
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     let W, H, particles = [];
@@ -185,7 +185,7 @@
       });
     }, { threshold: 0.3 });
     fills.forEach(f => fObs.observe(f));
-    /* â”€â”€ THEME TOGGLE â”€â”€ */
+    /* ── THEME TOGGLE ── */
     (function () {
       const html = document.documentElement;
       const btn = document.getElementById('themeToggle');
@@ -194,10 +194,10 @@
       function applyTheme(theme) {
         if (theme === 'light') {
           html.setAttribute('data-theme', 'light');
-          thumb.textContent = 'â˜€ï¸';
+          thumb.textContent = '☀️';
         } else {
           html.removeAttribute('data-theme');
-          thumb.textContent = 'ðŸŒ™';
+          thumb.textContent = '🌙';
         }
       }
 
