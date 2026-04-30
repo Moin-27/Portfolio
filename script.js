@@ -185,7 +185,7 @@
       });
     }, { threshold: 0.3 });
     fills.forEach(f => fObs.observe(f));
-    /* ── THEME TOGGLE ── */
+    /* â”€â”€ THEME TOGGLE â”€â”€ */
     (function () {
       const html = document.documentElement;
       const btn = document.getElementById('themeToggle');
@@ -194,10 +194,10 @@
       function applyTheme(theme) {
         if (theme === 'light') {
           html.setAttribute('data-theme', 'light');
-          thumb.textContent = '☀️';
+          thumb.textContent = 'â˜€ï¸';
         } else {
           html.removeAttribute('data-theme');
-          thumb.textContent = '🌙';
+          thumb.textContent = 'ðŸŒ™';
         }
       }
 
@@ -211,3 +211,22 @@
         localStorage.setItem('portfolio-theme', current);
       });
     })();
+    /* â”€â”€ RESUME DOWNLOAD â”€â”€ */
+    const resumeBtn = document.getElementById('downloadResume');
+    if (resumeBtn) {
+      resumeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        try {
+          const link = document.createElement('a');
+          link.href = 'data:application/pdf;base64,' + resumeBase64;
+          link.download = 'Moin_Ahmed_Resume.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (err) {
+          // Fallback
+          window.open('Moin_Ahmed_Resume.pdf', '_blank');
+        }
+      });
+    }
+
