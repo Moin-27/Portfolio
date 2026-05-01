@@ -8,7 +8,7 @@
     window.addEventListener('resize', resize);
 
     function getParticleRGB() {
-      return document.documentElement.getAttribute('data-theme') === 'light' ? '0,85,204' : '0,242,254';
+      return document.documentElement.getAttribute('data-theme') === 'light' ? '99,102,241' : '0,242,254';
     }
 
     class Particle {
@@ -224,8 +224,8 @@
           link.click();
           document.body.removeChild(link);
         } catch (err) {
-          // Fallback
           window.open('Moin_Ahmed_Resume.pdf', '_blank');
         }
       });
     }
+
