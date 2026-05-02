@@ -211,21 +211,4 @@
         localStorage.setItem('portfolio-theme', current);
       });
     })();
-    /* ── RESUME DOWNLOAD ── */
-    const resumeBtn = document.getElementById('downloadResume');
-    if (resumeBtn) {
-      resumeBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        try {
-          const link = document.createElement('a');
-          link.href = 'data:application/pdf;base64,' + resumeBase64;
-          link.download = 'Moin_Ahmed_Resume.pdf';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        } catch (err) {
-          window.open('Moin_Ahmed_Resume.pdf', '_blank');
-        }
-      });
-    }
 
