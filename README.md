@@ -1,14 +1,17 @@
-# Portfolio Website
+# Moin Ahmed – Data Analyst Portfolio
+
+🚀 **Open to Data Analyst Opportunities**
 
 This is my personal portfolio website showcasing my projects, skills, and certifications in Data Analytics.
 
 ## 🔧 Tech Stack
-- HTML
-- CSS
-- JavaScript
+- HTML5 & CSS3
+- JavaScript (ES6+)
+- Responsive Design
+- Git & GitHub
 
 ## 🚀 Live Demo
-👉 [https://moin-27.github.io/Portfolio/](https://moin-27.github.io/Portfolio/)
+👉 **[View Live Portfolio](https://moin-27.github.io/Portfolio/)**
 
 ## 📂 Features
 - **Projects Showcase:** Interactive section featuring projects like SkillBridge and Language Translation Tool.
@@ -18,4 +21,9 @@ This is my personal portfolio website showcasing my projects, skills, and certif
 - **Responsive Design:** Optimized for both desktop and mobile viewing.
 
 ## 👨‍💻 Author
-**Moin Ahmed**
+**Moin Ahmed**  
+*Data Analyst*  
+Mumbai, India  
+
+🔗 **LinkedIn:** [linkedin.com/in/moin-ahmed27](https://linkedin.com/in/moin-ahmed27)  
+🔗 **GitHub:** [github.com/Moin-27](https://github.com/Moin-27)
