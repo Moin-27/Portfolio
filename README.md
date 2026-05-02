@@ -2,9 +2,12 @@
 
 🚀 **Open to Data Analyst Opportunities**
 
-This is my personal portfolio website showcasing my projects, skills, and certifications in Data Analytics.
+A modern portfolio showcasing my projects, skills, and hands-on experience in Data Analytics.
 
 ## 🔧 Tech Stack
+- SQL (MySQL)
+- Power BI
+- Python (Data Analysis)
 - HTML5 & CSS3
 - JavaScript (ES6+)
 - Responsive Design
@@ -27,3 +30,6 @@ Mumbai, India
 
 🔗 **LinkedIn:** [linkedin.com/in/moin-ahmed27](https://linkedin.com/in/moin-ahmed27)  
 🔗 **GitHub:** [github.com/Moin-27](https://github.com/Moin-27)
+
+---
+⭐ If you like this project, feel free to star the repository!
