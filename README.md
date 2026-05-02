@@ -2,12 +2,12 @@
 
 🚀 **Open to Data Analyst Opportunities**
 
-A modern portfolio showcasing my projects, skills, and hands-on experience in Data Analytics.
+A modern portfolio showcasing projects, skills, and hands-on experience in Data Analytics.
 
 ## 🔧 Tech Stack
 - SQL (MySQL)
-- Power BI
 - Python (Data Analysis)
+- Power BI
 - HTML5 & CSS3
 - JavaScript (ES6+)
 - Responsive Design
@@ -22,6 +22,8 @@ A modern portfolio showcasing my projects, skills, and hands-on experience in Da
 - **Certifications:** Integrated list of professional certifications with LinkedIn verification links.
 - **Contact Section:** Clean interface with direct email, LinkedIn, and GitHub integration.
 - **Responsive Design:** Optimized for both desktop and mobile viewing.
+
+💡 *Built real-world projects focused on solving practical problems using data.*
 
 ## 👨‍💻 Author
 **Moin Ahmed**  
