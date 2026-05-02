@@ -59,7 +59,7 @@
     [data-theme='light'] .sql-card {
       background: #1a1625;
       border-color: rgba(99, 102, 241, 0.35);
-      box-shadow: 0 20px 50px rgba(99, 91, 255, 0.18), 0 0 0 1px rgba(99,102,241,0.12);
+      box-shadow: 0 20px 50px rgba(99, 91, 255, 0.18), 0 0 0 1px rgba(99, 102, 241, 0.12);
     }
 
     [data-theme='light'] .sql-header {
@@ -127,6 +127,24 @@
       background: rgba(99, 102, 241, 0.12);
       border-color: #6366f1;
       color: #4338ca;
+    }
+
+    [data-theme='light'] .contact-chip.primary {
+      background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
+      color: #ffffff;
+      border: none;
+    }
+
+    [data-theme='light'] .contact-chip.outline {
+      color: #4338ca;
+      border-color: rgba(67, 56, 202, 0.5);
+      background: rgba(99, 102, 241, 0.04);
+    }
+
+    [data-theme='light'] .contact-chip.subtle {
+      color: var(--muted);
+      border-color: transparent;
+      background: transparent;
     }
 
     /* --- THEME TOGGLE BUTTON --- */
@@ -716,15 +734,8 @@
     }
 
     /* ADDITIONAL SKILLS (Subtle/Inline Version) */
-    .skills-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
-      margin: 3.5rem 0 1.5rem;
-      opacity: 0.3;
-    }
-
     .additional-skills {
-      margin-top: 1rem;
+      margin-top: 2.5rem;
       padding: 0;
       background: transparent;
       border: none;
@@ -737,45 +748,46 @@
 
     .additional-title {
       font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
       color: #7c83ff;
       letter-spacing: 1px;
       text-transform: uppercase;
-      opacity: 0.8;
+      opacity: 1;
     }
 
     .additional-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
       align-items: center;
     }
 
     .additional-tags .tag {
-      background: transparent;
-      border: 1px solid rgba(124, 131, 255, 0.2);
-      padding: 4px 12px;
+      background: rgba(124, 131, 255, 0.05);
+      border: 1px solid rgba(124, 131, 255, 0.4);
+      padding: 5px 14px;
       border-radius: 6px;
-      font-size: 11px;
-      color: var(--muted);
+      font-size: 12px;
+      color: var(--text);
       transition: all 0.3s ease;
+      opacity: 0.9;
     }
 
     .additional-tags .tag:hover {
-      background: rgba(124, 131, 255, 0.1);
+      background: rgba(124, 131, 255, 0.15);
       color: #7c83ff;
       border-color: #7c83ff;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      opacity: 1;
+      box-shadow: 0 4px 12px rgba(124, 131, 255, 0.15);
     }
 
     @media(max-width: 768px) {
       .additional-skills {
         flex-direction: column;
         gap: 0.8rem;
-      }
-      .skills-divider {
-        margin: 2.5rem 0 1rem;
+        margin-top: 1.5rem;
       }
     }
 
@@ -936,17 +948,52 @@
       gap: 12px;
     }
 
+    .btn-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 14px;
+      background: rgba(124, 131, 255, 0.08);
+      border: 1px solid rgba(124, 131, 255, 0.25);
+      color: #7c83ff;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .btn-linkedin:hover {
+      background: rgba(124, 131, 255, 0.18);
+      border-color: #7c83ff;
+      transform: translateY(-1px);
+    }
+
+    [data-theme='light'] .btn-linkedin {
+      background: rgba(99, 102, 241, 0.1);
+      border-color: rgba(99, 102, 241, 0.3);
+      color: #4338ca;
+    }
+
+    [data-theme='light'] .btn-linkedin:hover {
+      background: rgba(99, 102, 241, 0.2);
+    }
+
     .cert-item {
       background: var(--surface);
       border: 0.5px solid var(--border);
-      border-radius: 4px;
+      border-radius: 8px;
       padding: 1.25rem 1.5rem;
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .cert-item::before {
@@ -955,16 +1002,18 @@
       left: 0;
       top: 0;
       bottom: 0;
-      width: 3px;
+      width: 4px;
       background: var(--green);
       transform: scaleY(0);
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
       transform-origin: bottom;
     }
 
     .cert-item:hover {
       border-color: var(--green);
-      padding-left: calc(1.5rem + 6px);
+      transform: translateY(-4px);
+      background: rgba(124, 131, 255, 0.04);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
 
     .cert-item:hover::before {
@@ -972,16 +1021,22 @@
     }
 
     .cert-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 4px;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
       background: var(--green-dim);
-      border: 0.5px solid var(--border);
+      border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 26px;
       flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .cert-item:hover .cert-badge {
+      transform: scale(1.1);
+      border-color: var(--green);
     }
 
     .cert-info {
@@ -990,21 +1045,25 @@
 
     .cert-title {
       font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 3px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text);
     }
 
     .cert-org {
       font-family: var(--mono);
       font-size: 12px;
       color: var(--green);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
     }
 
     .cert-date {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
+      opacity: 0.6;
+      letter-spacing: 0.05em;
     }
 
     .contact-inner {
@@ -1070,6 +1129,43 @@
       border-color: var(--green);
       color: var(--green-light);
       transform: translateY(-2px);
+    }
+
+    /* Contact Hierarchy */
+    .contact-chip.primary {
+      background: var(--green);
+      color: #04342C;
+      border: none;
+      font-weight: 700;
+    }
+
+    .contact-chip.primary:hover {
+      background: var(--green-light);
+      box-shadow: 0 4px 20px rgba(0, 242, 254, 0.2);
+    }
+
+    .contact-chip.outline {
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--green-light);
+    }
+
+    .contact-chip.outline:hover {
+      background: var(--green-dim);
+    }
+
+    .contact-chip.subtle {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--muted);
+      opacity: 0.8;
+    }
+
+    .contact-chip.subtle:hover {
+      color: var(--text);
+      background: var(--surface);
+      opacity: 1;
+      border-color: var(--border);
     }
 
     footer {
