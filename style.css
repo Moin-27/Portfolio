@@ -849,8 +849,8 @@
     .proj-desc {
       font-size: 15px;
       color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
+      line-height: 1.85;
+      margin-bottom: 1.6rem;
     }
 
     .proj-tags {
@@ -889,7 +889,7 @@
     .proj-links {
       display: flex;
       gap: 12px;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       position: relative;
       z-index: 2;
     }
