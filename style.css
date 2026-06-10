@@ -811,6 +811,8 @@
       position: relative;
       overflow: hidden;
       transition: all 0.4s;
+      display: flex;
+      flex-direction: column;
     }
 
     .proj-card::after {
@@ -889,7 +891,8 @@
     .proj-links {
       display: flex;
       gap: 12px;
-      margin-top: 2rem;
+      margin-top: auto;
+      padding-top: 2rem;
       position: relative;
       z-index: 2;
     }
