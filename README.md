@@ -32,7 +32,7 @@ A personal portfolio showcasing my projects, technical skills, and learning jour
 
 ---
 
-
+## 👨‍💻 Author
 
 **Moin Ahmed**
 *Data Analyst*
