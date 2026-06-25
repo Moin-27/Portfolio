@@ -42,20 +42,3 @@ Mumbai, India
 * 💻 **GitHub**: [github.com/Moin-27](https://github.com/Moin-27)
 * 📊 **Tableau Public**: [public.tableau.com/app/profile/moin.ahmed27](https://public.tableau.com/app/profile/moin.ahmed27)
 * 🌐 **Portfolio**: [moin-27.github.io/Portfolio](https://moin-27.github.io/Portfolio/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
